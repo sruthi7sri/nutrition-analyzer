@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    background: url('assets/food-doodle.jpg'); /* Background Image */
+    background: url('assets/food-doodle.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -26,7 +26,7 @@ body::before {
     z-index: -1;
 }
 
-/* Container - Centering and Enhancements */
+/* Container */
 .container {
     width: 90%;
     max-width: 600px;
@@ -92,7 +92,7 @@ input[type="file"] {
     border-radius: 8px;
 }
 
-/* Dropdown Styling */
+/* Multiple Select Styling */
 select {
     width: 100%;
     padding: 10px;
@@ -101,7 +101,7 @@ select {
     font-size: 14px;
 }
 
-/* Button Styling - Gradient, Hover Effects */
+/* Button Styling */
 button {
     background: linear-gradient(to right, #007bff, #0056b3);
     color: white;
@@ -121,7 +121,7 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* Flashcard Styling - Interactive Effect */
+/* Flashcard Styling */
 .flashcard {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 12px;
@@ -132,6 +132,7 @@ button:hover {
     text-align: center;
     color: #333;
     transition: 0.3s ease-in-out;
+    margin-top: 20px;
 }
 
 .flashcard:hover {
@@ -142,4 +143,33 @@ button:hover {
 /* Placeholder Text */
 .placeholder-text {
     color: #999;
+}
+
+/* Badge for Health Label */
+.badge p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Summary Styling */
+.summary {
+    margin-top: 10px;
+    font-size: 16px;
+    text-align: left;
+}
+
+/* Daily Intake Styling */
+.daily-intake {
+    margin-top: 10px;
+    font-size: 16px;
+    text-align: left;
+}
+
+/* Warning Styling (in red) */
+.warning {
+    margin-top: 10px;
+    font-size: 16px;
+    text-align: left;
+    color: red;
 }

@@ -1,14 +1,23 @@
 from fastapi import FastAPI, File, UploadFile, Form, HTTPException
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 from pathlib import Path
 import shutil
 import logging
 from ocr import extract_text_from_image  # Your OCR extraction function
 from util import predict_nutrition      # Import the function from util.py
-from allergy import check_allergies_extended
-
+from allergies import check_allergies_extended
+from text_summary import summarize_nutrition, generate_daily_intake_recommendation
 # Initialize FastAPI app
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # or list your frontend's URL
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -44,6 +53,14 @@ async def upload_file(file: UploadFile = File(...), allergy: str = Form(...)):
         
         logging.info("OCR extraction complete.")
 
+        # Summarize the nutrition label text
+        nutrition_summary = summarize_nutrition(extracted_text)
+        logging.info("Nutrition summarization complete.")
+
+        # Generate daily intake recommendations (dynamic or static based on your summary.py logic)
+        daily_intake_recommendation = generate_daily_intake_recommendation(nutrition_summary)
+        logging.info("Daily intake recommendation generated.")
+
         user_allergies = []
         if allergy and allergy.lower() != "none":
             user_allergies.append(allergy)
@@ -60,6 +77,8 @@ async def upload_file(file: UploadFile = File(...), allergy: str = Form(...)):
             "allergy": allergy,
             "extracted_text": extracted_text,
             "model_prediction": result["prediction"],
+            "nutrition_summary": nutrition_summary,
+            "daily_intake_recommendation": daily_intake_recommendation,
             "allergy_warning": allergy_warning,
         }
         return JSONResponse(content=response)
