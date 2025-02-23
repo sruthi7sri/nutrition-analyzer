@@ -1,0 +1,17 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+uploads/
+.env
+archive.zip
+distilbert_test_data.csv
+distilbert_train_data.csv
+image1.jpg
+nutrition-analyzer.zip
+Untitled.ipynb
+archieve.zip
+.ipynb_checkpoints/
+backend/distilbert_food_classifier/

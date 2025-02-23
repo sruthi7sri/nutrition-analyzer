@@ -1,0 +1,175 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: url('assets/food-doodle.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Background Overlay for Readability */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: -1;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Headings */
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+/* Instructions */
+.instructions {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+/* Form Sections */
+.form-section {
+    margin: 15px 0;
+    text-align: left;
+    padding: 0 20px;
+}
+
+/* File Upload Styling */
+.file-upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="file"] {
+    display: block;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+/* Multiple Select Styling */
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* Button Styling */
+button {
+    background: linear-gradient(to right, #007bff, #0056b3);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 90%;
+    margin: 15px 0;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background: linear-gradient(to right, #0056b3, #003f7f);
+    transform: scale(1.05);
+}
+
+/* Flashcard Styling */
+.flashcard {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 15px;
+    border: 2px dashed #ccc;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+    font-size: 16px;
+    text-align: center;
+    color: #333;
+    transition: 0.3s ease-in-out;
+    margin-top: 20px;
+}
+
+.flashcard:hover {
+    border-color: #007bff;
+    box-shadow: 0px 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+/* Placeholder Text */
+.placeholder-text {
+    color: #999;
+}
+
+/* Badge for Health Label */
+.badge p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Summary Styling */
+.summary {
+    margin-top: 10px;
+    font-size: 16px;
+    text-align: left;
+}
+
+/* Daily Intake Styling */
+.daily-intake {
+    margin-top: 10px;
+    font-size: 16px;
+    text-align: left;
+}
+
+/* Warning Styling (in red) */
+.warning {
+    margin-top: 10px;
+    font-size: 16px;
+    text-align: left;
+    color: red;
+}
