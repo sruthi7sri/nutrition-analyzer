@@ -1,64 +1,61 @@
 # Nutrition Analyzer
 
-An AI-powered web application that analyzes nutrition labels to provide personalized health insights and assist users in making informed food choices.
+## Inspiration
+Many consumers struggle to decipher nutrition labels, making it difficult to make informed dietary choices. Misleading claims, hidden ingredients, and a lack of personalized guidance often lead to unhealthy eating habits. The **Nutrition Analyzer** was created to simplify nutritional awareness using AI and provide users with personalized health insights effortlessly.
 
-## Table of Contents
-- [Overview](#overview)
-- [Features](#features)
-- [Project Workflow](#project-workflow)
-- [Technology Stack](#technology-stack)
-- [Setup Instructions](#setup-instructions)
-- [Future Enhancements](#future-enhancements)
-- [Contributors](#contributors)
-- [License](#license)
-
-## Overview
-Many consumers struggle to understand nutrition labels due to hidden ingredients and misleading claims. The **Nutrition Analyzer** simplifies this process by leveraging **machine learning and AI** to extract, summarize, and classify nutrition data. Users can upload an image of a nutrition label, specify dietary preferences (e.g., allergies), and receive health insights based on the extracted information.
-
-## Features
-- **Image Recognition of Nutrition Labels:** AI-based text extraction from uploaded images.
-- **User-Specified Dietary Concerns:** Customizable preferences based on dietary restrictions and health goals.
-- **Health Assessment:** Classifies products as *healthy, moderately healthy, or unhealthy*.
-- **Comprehensive Nutritional Summaries:** Provides detailed insights into calories, macronutrients, ingredients, and more.
-- **Allergy Warnings:** Detects allergens based on user inputs.
-- **Text Summarization:** Generates a concise summary of the extracted text.
-- **Daily Intake Recommendations:** Offers dietary guidance based on extracted data.
-
-## Project Workflow
-The **Nutrition Analyzer** follows a structured five-step process:
-
-### 1. UI Interaction
-- Users upload an image of a nutrition label and select dietary concerns.
-- The UI calls an API with the image and allergy data.
-
-### 2. Text Extraction
-- The backend processes the image and extracts text using **OCR (PyTesseract)**.
-
-### 3. Text Summarization & Classification
-- Extracted text is summarized using a text summarization model.
-- A classification model categorizes the nutrition data.
-
-### 4. JSON Creation
-- The extracted and processed data is formatted into a structured JSON response.
-
-### 5. API Response & UI Display
-- The UI receives the processed JSON and displays the final results to the user.
+## What It Does
+The **Nutrition Analyzer** is a smart web application that allows users to:
+- Upload an image of a nutrition label to extract key details using AI.
+- Input dietary preferences and allergies for personalized analysis.
+- Get an instant health classification—healthy, moderately healthy, or unhealthy.
+- Receive detailed nutritional summaries, including calories, macronutrients, and ingredients.
+- Get allergy warnings based on user input.
+- View daily intake recommendations for better dietary decisions.
 
 ## Technology Stack
-- **Frontend:** React.js, HTML, CSS
-- **Backend:** Flask (Python)
-- **OCR:** PyTesseract
-- **Text Summarization:** DistilBERT
-- **Classification Model:** Machine Learning-based health categorization
-- **Database:** MongoDB / Firebase (if applicable)
-- **Deployment:** Docker, AWS/GCP/Azure
+
+| Task | Technology |
+|-------------------------------|--------------------------------------------------|
+| **Extract text from image** | Python (FastAPI), PyTesseract, Image Preprocessing (TBD) |
+| **Convert extracted text into structured JSON** | T5 Base (Summarization), DistilBERT (Classification) |
+| **Score food based on FDA/WHO guidelines** | Python (AST API, Pandas), OpenFoodFacts Dataset |
+| **Build user interface for image upload & results** | HTML, CSS, JavaScript |
+| **Connect frontend to backend via API calls** | Flask/FastAPI (Backend), Fetch/Axios (Frontend) |
+| **Host and manage backend** | GitHub |
+
+## How We Built It
+- **Image Processing & AI:** Used machine learning models (such as DistilBERT) to extract text from nutrition labels and analyze them.
+- **Web Application:** Frontend built using HTML, CSS, with backend powered by JavaScript and FastAPT.
+- **Health Classification Algorithm:** Implemented a system to categorize food items based on extracted nutritional data.
+- **Database Integration:** Utilized a dataset of nutritional information to enhance analysis and provide comparisons.
+
+## Challenges We Ran Into
+- **Accurate Text Extraction:** Handling low-quality prints, complex fonts, and blurry images for OCR-based extraction.
+- **Classification Complexity:** Defining precise thresholds for health categorization required extensive data validation.
+- **Personalization Handling:** Balancing custom dietary preferences with accurate health assessments.
+- **Real-Time Processing:** Ensuring fast and accurate analysis without lag.
+
+## Accomplishments
+- Successfully implemented AI-based nutrition analysis from images.
+- Developed a personalized dietary insights feature tailored to users' health needs.
+- Built an interactive and user-friendly web application.
+- Implemented real-time health classification for quick and accessible nutrition evaluation.
+- Created a foundation for future AI-driven food recommendations.
+
+## What We Learned
+- The importance of AI in simplifying complex health data for users.
+- How OCR and image recognition can be optimized for better text extraction.
+- The challenges of balancing personalization with accurate nutritional analysis.
+- The significance of real-time data processing for an intuitive user experience.
+- How expanding the database can enhance AI-driven insights for better decision-making.
+
+## Future Enhancements
+- **Healthier Alternatives:** Recommend alternative food options if a product is unhealthy.
+- **Expanded Database:** Improve AI accuracy with a larger dataset.
+- **Mobile Application:** Extend functionality to mobile platforms.
 
 ## Setup Instructions
-To set up the project locally:
-
-### 1. Clone the repository:
+### Clone the Repository
 ```bash
 git clone https://github.com/sruthi7sri/nutrition-analyzer.git
 cd nutrition-analyzer
-
-
